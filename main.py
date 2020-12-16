@@ -16,7 +16,7 @@ ap.add_argument("-o", "--output", type=str, default="barcodes.csv",
 args = vars(ap.parse_args())
 
 # Create VideoCapture, define codec and create VideoWriter
-cap = cv2.VideoCapture(2)
+cap = cv2.VideoCapture(0)
 fourcc = cv2.VideoWriter_fourcc(*'XVID')
 out = cv2.VideoWriter('output.avi',fourcc,20.0,(640,480))
 
@@ -26,7 +26,7 @@ while(True):
     ret, frame = cap.read()
 
     if ret==True:
-        out.write(frame)
+        #out.write(frame)
 
         barcodes = pyzbar.decode(frame)
 
